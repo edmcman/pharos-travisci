@@ -14,9 +14,9 @@ wget https://cmake.org/files/v3.8/cmake-3.8.2.tar.gz
 test -d cmake-3.8.2 && rm -rf cmake-3.8.2
 tar -xzf cmake-3.8.2.tar.gz
 cd cmake-3.8.2
-./bootstrap
-make -j 4
-sudo make install
+./bootstrap |& tail -n 50
+make -j 4 |& tail -n 50
+sudo make install |& tail -n 50
 
 # BOOST
 cd $DIR
@@ -38,7 +38,7 @@ test -d yaml && rm -rf yaml
 git clone https://github.com/jbeder/yaml-cpp.git yaml
 mkdir yaml/build
 cd yaml/build
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=true ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=true -DRULE_MESSAGES=OFF ..
 make -j4
 sudo make -j4 install
 
