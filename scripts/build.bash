@@ -12,7 +12,7 @@ cd $DIR
 
 wget https://cmake.org/files/v3.8/cmake-3.8.2.tar.gz
 test -d cmake-3.8.2 && rm -rf cmake-3.8.2
-tar -xvzf cmake-3.8.2.tar.gz
+tar -xvf cmake-3.8.2.tar.gz
 cd cmake-3.8.2
 ./bootstrap
 make -j 4
@@ -25,7 +25,7 @@ test -d boost && sudo rm -rf boost
 mkdir boost
 cd boost
 wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2
-tar -xvjf boost_1_64_0.tar.bz2
+tar -xjf boost_1_64_0.tar.bz2
 cd boost_1_64_0
 ./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams
 ./b2 clean
