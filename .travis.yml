@@ -3,11 +3,23 @@ sudo: required
 dist: trusty
 compiler:
 - gcc
-- clang
+#- clang
 os:
 - linux
+
+addons:
+  apt:
+    sources:
+     - ubuntu-toolchain-r-test
+    packages:
+     - g++-5
+env:
+   - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
 script:
         - ./scripts/build.bash
 git:
   submodules: false
+
+before_install:
+    - eval "${MATRIX_EVAL}"
