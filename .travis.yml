@@ -9,3 +9,5 @@ os:
 
 script:
         - ./scripts/build.bash
+git:
+  submodules: false
