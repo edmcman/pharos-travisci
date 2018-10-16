@@ -29,7 +29,7 @@ tar -xjf boost_1_64_0.tar.bz2
 cd boost_1_64_0
 ./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams
 ./b2 clean
-sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install
+sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install |& tail -n 50
 
 # YAML-CPP
 cd $DIR
@@ -50,7 +50,7 @@ cd z3
 git checkout b81165167304c20e28bc42549c94399d70c8ae65
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DRULE_MESSAGES=off ..
 make -j4
 sudo make -j4 install
 
