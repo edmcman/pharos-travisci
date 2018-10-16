@@ -29,7 +29,7 @@ tar -xjf boost_1_64_0.tar.bz2
 cd boost_1_64_0
 ./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams
 ./b2 clean
-sudo ./b2 -j4 --without-python toolset=gcc cxxflags="-std=c++11" install
+sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install
 
 # YAML-CPP
 cd $DIR
