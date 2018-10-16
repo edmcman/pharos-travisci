@@ -27,7 +27,7 @@ cd boost
 wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2
 tar -xjf boost_1_64_0.tar.bz2
 cd boost_1_64_0
-./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams
+./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams,thread
 ./b2 clean
 sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install |& tail -n 50
 
