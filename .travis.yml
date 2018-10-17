@@ -8,6 +8,7 @@ os:
 
 script:
         - ./scripts/build.bash
+        - ctest -j4
 git:
   submodules: false
 before_install:
