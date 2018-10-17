@@ -25,15 +25,17 @@ fi
 cd $DIR
 
 if [ $DONT_COMPILE_BOOST != "" ]
-test -d boost && sudo rm -rf boost
-mkdir boost
-cd boost
-wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2
-tar -xjf boost_1_64_0.tar.bz2
-cd boost_1_64_0
-./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams,thread,date_time,random,regex,program_options,filesystem,wave
-./b2 clean
-sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install |& tail -n 50
+then
+   test -d boost && sudo rm -rf boost
+   mkdir boost
+   cd boost
+   wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2
+   tar -xjf boost_1_64_0.tar.bz2
+   cd boost_1_64_0
+   ./bootstrap.sh --prefix=/usr/local --with-libraries=system,chrono,timer,iostreams,thread,date_time,random,regex,program_options,filesystem,wave
+   ./b2 clean
+   sudo ./b2 -j4 toolset=gcc cxxflags="-std=c++11" install |& tail -n 50
+fi
 
 # YAML-CPP
 cd $DIR
