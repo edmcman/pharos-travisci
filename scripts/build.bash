@@ -38,7 +38,7 @@ test -d yaml && rm -rf yaml
 git clone https://github.com/jbeder/yaml-cpp.git yaml
 mkdir yaml/build
 cd yaml/build
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=true -DRULE_MESSAGES=OFF ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=true -DCMAKE_RULE_MESSAGES=OFF ..
 make -j4
 sudo make -j4 install
 
@@ -50,7 +50,7 @@ cd z3
 git checkout b81165167304c20e28bc42549c94399d70c8ae65
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DRULE_MESSAGES=off ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_RULE_MESSAGES=off ..
 make -j4
 sudo make -j4 install
 
@@ -71,7 +71,7 @@ cd release
   --enable-languages=binaries --enable-projects-directory \
   --disable-tutorial-directory --disable-boost-version-check \
   --with-boost=/usr/local CXXFLAGS=-std=c++11 --with-yaml=/usr/local \
-  --with-z3=/usr/local || cat config.log | tail -n 100
+  --with-z3=/usr/local || cat config.log
 make -j4
 sudo make -j4 install
 
