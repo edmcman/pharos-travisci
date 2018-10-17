@@ -71,7 +71,7 @@ cd release
   --enable-languages=binaries --enable-projects-directory \
   --disable-tutorial-directory --disable-boost-version-check \
   --with-boost=/usr/local CXXFLAGS=-std=c++11 --with-yaml=/usr/local \
-  --with-z3=/usr/local || cat config.log
+  --with-z3=/usr/local
 make -j4
 sudo make -j4 install
 
