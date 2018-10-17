@@ -21,7 +21,6 @@ then
     sudo make install |& tail -n 50
 fi
 
-
 # BOOST
 cd $DIR
 
