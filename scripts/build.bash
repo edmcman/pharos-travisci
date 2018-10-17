@@ -10,13 +10,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # CMake
 cd $DIR
 
-wget https://cmake.org/files/v3.8/cmake-3.8.2.tar.gz
-test -d cmake-3.8.2 && rm -rf cmake-3.8.2
-tar -xzf cmake-3.8.2.tar.gz
-cd cmake-3.8.2
-./bootstrap |& tail -n 50
-make -j 4 |& tail -n 50
-sudo make install |& tail -n 50
+if ! cmake
+then
+    wget https://cmake.org/files/v3.8/cmake-3.8.2.tar.gz
+    test -d cmake-3.8.2 && rm -rf cmake-3.8.2
+    tar -xzf cmake-3.8.2.tar.gz
+    cd cmake-3.8.2
+    ./bootstrap |& tail -n 50
+    make -j 4 |& tail -n 50
+    sudo make install |& tail -n 50
+fi
 
 # BOOST
 cd $DIR
