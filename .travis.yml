@@ -1,18 +1,20 @@
 language: cpp
 sudo: required
 dist: trusty
+
 compiler:
 - gcc
+
 os:
 - linux
 
 env:
-        - DONT_COMPILE_CMAKE=true DONT_COMPILE_BOOST=true
+- DONT_COMPILE_CMAKE=true DONT_COMPILE_BOOST=true
 script:
-        - ./scripts/build.bash
-        - ctest -j4
+- ./scripts/build.bash
+- ctest -j4
 git:
   submodules: false
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y build-essential wget flex ghostscript bzip2 git subversion automake libtool bison python libncurses5-dev vim-common libsqlite3-0 libsqlite3-dev zlib1g-dev libboost-all-dev
+- sudo apt-get update
+- sudo apt-get install -y build-essential wget flex ghostscript bzip2 git subversion automake libtool bison python libncurses5-dev vim-common libsqlite3-0 libsqlite3-dev zlib1g-dev libboost-all-dev
