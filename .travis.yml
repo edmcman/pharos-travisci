@@ -9,7 +9,7 @@ os:
 - linux
 
 env:
-- DONT_COMPILE_CMAKE=true DONT_COMPILE_BOOST=true
+- DONT_COMPILE_CMAKE=true
 
 script:
 - ./scripts/build.bash
